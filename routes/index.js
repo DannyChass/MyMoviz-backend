@@ -21,7 +21,9 @@ router.get('/movies', async (req, res) => {
     }
 
     const data = await response.json();
-    res.json(data.results);
+
+    // ✅ Structure attendue par le test
+    res.json({ movies: data.results });
   } catch (error) {
     console.error('Erreur TMDB :', error.message);
     res.status(500).json({ error: 'Impossible de récupérer les découvertes' });
